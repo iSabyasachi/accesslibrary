@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
@@ -106,17 +107,13 @@ public class BookItemBO {
 		return activeBookItem;
 	}
 	
-	public BookItem approveReserveRequest(User librarian, User member, BookItem reservedBookItem, String bookItemStatus) {
-		Book book = reservedBookItem.getBook();
-		Set<BookItem> bookItems = book.getBookItems();
+	public BookItem approveReserveRequest(User librarian, User member, BookItem reservedBookItem) {
 		reservedBookItem.setActive(1);
 		reservedBookItem.setBorrowedDate(Timestamp.from(Instant.now()));
-		reservedBookItem.setStatus(bookItemStatus);
-		book.setStatus(BookStatus.LOANED.name());		
-		reservedBookItem.setBook(book);
+		reservedBookItem.setStatus(BookItemStatus.CHECKEDOUT.name());
+		reservedBookItem.getBook().setStatus(BookStatus.LOANED.name());		
 		reservedBookItem.setUpdatedTS(Timestamp.from(Instant.now()));
-		reservedBookItem.setTrackingNumber(BookItemBO.generateOrderTrackingNumber());
-		bookItems.add(reservedBookItem);			
+		reservedBookItem.setTrackingNumber(BookItemBO.generateOrderTrackingNumber());					
 		this.save(reservedBookItem);
 		return reservedBookItem;
 	}
@@ -129,15 +126,15 @@ public class BookItemBO {
     }
 	
 	public BookItem fetchActiveBookItem(Set<BookItem> bookItems) {
-		BookItem bookItem = bookItems!= null && bookItems.size() > 0 
-				? bookItems.stream().filter(d -> d.getActive() == 1).findFirst().get() : null;
-		return bookItem;
+		Optional<BookItem> bookItemOpt = bookItems!= null && bookItems.size() > 0 
+				? bookItems.stream().filter(d -> d.getActive() == 1).findFirst() : null;
+		return bookItemOpt != null && bookItemOpt.isPresent() ? bookItemOpt.get() : null;
 	}
 	
 	public BookItem fetchReserveRequestBookItem(Set<BookItem> bookItems) {
-		BookItem bookItem =  bookItems!= null && bookItems.size() > 0 
-				? bookItems.stream().filter(d -> d.getStatus().equals(BookItemStatus.RESERVEREQUEST.name())).findFirst().get() : null;
-		return bookItem;
+		Optional<BookItem> bookItemOpt =  bookItems!= null && bookItems.size() > 0 
+				? bookItems.stream().filter(d -> d.getStatus().equals(BookItemStatus.RESERVEREQUEST.name())).findFirst() : null;
+		return bookItemOpt != null && bookItemOpt.isPresent() ? bookItemOpt.get() : null;		
 	}
 	
 	public boolean isInvalidReturn(Set<BookItem> bookItems, User member) {
@@ -151,4 +148,6 @@ public class BookItemBO {
 		}
 		return false;
 	}
+	
+	
 }

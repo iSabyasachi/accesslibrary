@@ -13,7 +13,7 @@ import com.lms.accesslibrary.dto.Response;
 import com.lms.accesslibrary.service.BookService;
 
 @RestController
-@RequestMapping("/api/lms")
+@RequestMapping("/api")
 public class BookController {
 	@Autowired
 	private BookService bookService;

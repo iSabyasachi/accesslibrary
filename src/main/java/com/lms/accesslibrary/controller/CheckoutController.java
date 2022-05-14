@@ -12,7 +12,7 @@ import com.lms.accesslibrary.dto.CheckoutResponse;
 import com.lms.accesslibrary.service.CheckoutService;
 
 @RestController
-@RequestMapping("/api/lms")
+@RequestMapping("/api")
 public class CheckoutController {
 	@Autowired
 	private CheckoutService checkoutService;

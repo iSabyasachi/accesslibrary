@@ -103,7 +103,6 @@ public class CheckoutServiceImpl implements CheckoutService {
 	 * */
 	public CheckoutResponse returnBookItem(Checkout checkout) {		
 		/*Find the librarian detail*/	
-		String msg = "";
 		String librarianId = String.valueOf(checkout.getLibrarian().getId());		
 		User librarian = userBO.findRegisteredUser(librarianId, UserType.LIBRARIAN.name());
 		if(librarian == null) {
@@ -118,7 +117,6 @@ public class CheckoutServiceImpl implements CheckoutService {
 			response.setMessage("FAILED!!! User is not found or is not a "+UserType.MEMBER.name()+".");
 			return response;
 		}
-		
 		
 		/*Find the Book Details - By BarCode*/
 		String barcode = checkout.getBook().getBarcode();
@@ -138,10 +136,9 @@ public class CheckoutServiceImpl implements CheckoutService {
 		BookItem reservedBookItem = bookItemBO.fetchReserveRequestBookItem(bookItems);		
 		String reserveMsg = "";
 		if(null != reservedBookItem) {
-			reservedBookItem = bookItemBO.approveReserveRequest(librarian, member, reservedBookItem, BookItemStatus.CHECKEDOUT.name());			
+			reservedBookItem = bookItemBO.approveReserveRequest(librarian, member, reservedBookItem);			
 			reserveMsg = "You have successfully checkedout the book with Tracking Number : "+reservedBookItem.getTrackingNumber();
-		}
-		
+		}		
 		response.setMessage("You have successfully returned the book with Tracking Number : "+activeBookItem.getTrackingNumber()+" and "+reserveMsg);	
 		
 		return response;				
