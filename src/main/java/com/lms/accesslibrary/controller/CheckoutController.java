@@ -1,5 +1,7 @@
 package com.lms.accesslibrary.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +16,9 @@ import com.lms.accesslibrary.service.CheckoutService;
 @RestController
 @RequestMapping("/api")
 public class CheckoutController {
+	
+	private Logger logger = LoggerFactory.getLogger(CheckoutController.class);
+	
 	@Autowired
 	private CheckoutService checkoutService;
 
@@ -23,6 +28,7 @@ public class CheckoutController {
 	
 	@PostMapping("/checkout")
     public CheckoutResponse checkoutBook(@RequestBody Checkout checkout) {
+		logger.info("Checkout Book method in CheckoutController class is invoked.");
 		
 		CheckoutResponse checkoutResponse = checkoutService.checkoutBookItem(checkout);
 
@@ -31,6 +37,7 @@ public class CheckoutController {
 	
 	@PostMapping("/return")
     public CheckoutResponse returnBook(@RequestBody Checkout checkout) {
+		logger.info("Return Book method in CheckoutController class is invoked.");
 		
 		CheckoutResponse checkoutResponse = checkoutService.returnBookItem(checkout);
 
@@ -39,6 +46,7 @@ public class CheckoutController {
 	
 	@PostMapping("/renew")
     public CheckoutResponse renewBook(@RequestBody Checkout checkout) {
+		logger.info("Renew Book method in CheckoutController class is invoked.");		
 		
 		CheckoutResponse checkoutResponse = checkoutService.renewBookItem(checkout);
 
@@ -47,6 +55,7 @@ public class CheckoutController {
 	
 	@PostMapping("/reserve")
     public CheckoutResponse reserveBook(@RequestBody Checkout checkout) {
+		logger.info("Reserve Book method in CheckoutController class is invoked.");		
 		
 		CheckoutResponse checkoutResponse = checkoutService.reserveBook(checkout);
 
@@ -55,6 +64,7 @@ public class CheckoutController {
 	
 	@PostMapping("/payfine")
     public CheckoutResponse payFine(@RequestBody Checkout checkout) {
+		logger.info("Pay fine method in CheckoutController class is invoked.");		
 		
 		CheckoutResponse checkoutResponse = checkoutService.payFine(checkout);
 
@@ -63,6 +73,7 @@ public class CheckoutController {
 	
 	@GetMapping("/getfine")
     public CheckoutResponse getFine(@RequestBody Checkout checkout) {
+		logger.info("Get Fine method in CheckoutController class is invoked.");		
 		
 		CheckoutResponse checkoutResponse = checkoutService.getFine(checkout);
 
