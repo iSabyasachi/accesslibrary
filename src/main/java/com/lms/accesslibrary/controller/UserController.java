@@ -1,5 +1,7 @@
 package com.lms.accesslibrary.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +17,7 @@ import com.lms.accesslibrary.service.UserService;
 @RestController
 @RequestMapping("/api")
 public class UserController {
+	private Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	private UserService userService;
@@ -25,6 +28,8 @@ public class UserController {
 	
 	@GetMapping("/read/one")
 	public String readUser() {
+		logger.info("Test : Read User method in UserController class is invoked.");	
+		
 		User user = new User();
 		user.setName("Sabyasach");
 		return user.toString();
@@ -32,6 +37,7 @@ public class UserController {
 	
 	@PostMapping("/adduser")
     public Response addUser(@RequestBody Request request) {
+		logger.info("Add User method in UserController class is invoked.");
 		
 		Response response = userService.addUser(request);
 
@@ -40,6 +46,7 @@ public class UserController {
 	
 	@PostMapping("/blockuser")
     public Response blockUser(@RequestBody Request request) {
+		logger.info("Block User method in UserController class is invoked.");
 		
 		Response response = userService.blockUser(request);
 
@@ -48,6 +55,7 @@ public class UserController {
 	
 	@PostMapping("/unblockuser")
     public Response unBlockUser(@RequestBody Request request) {
+		logger.info("Un Block User method in UserController class is invoked.");
 		
 		Response response = userService.unBlockUser(request);
 
