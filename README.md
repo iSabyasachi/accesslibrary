@@ -9,7 +9,16 @@ Let's create awesome Microservices and RESTful web services with Spring and Spri
 4. Diagrams
 5. Trobleshooting
 
-Running Examples
+
+Overview :
+  Functional Requirements : 
+  - Build a library that has 100 books from different categories.
+	- People can check in and check out the books based on the availability.
+	- Only 5 people can sit in the library.
+	- Apart from books, library offers 2 computers, paper & magazines.
+	- People can purchase books.
+
+Running Examples :
   - Download the zip or clone the Git repository.
   - Unzip the zip file (if you downloaded one)
   - Open Command Prompt and Change directory (cd) to folder containing pom.xml
