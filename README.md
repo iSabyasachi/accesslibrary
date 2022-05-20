@@ -17,6 +17,12 @@ Overview :
 	- Only 5 people can sit in the library.
 	- Apart from books, library offers 2 computers, paper & magazines.
 	- People can purchase books.
+	
+   Tools Needed/Installed :
+	- Java : JDK 11.0.14
+	- Eclipse : jee-2022-03
+	- Python : 3.10.4
+	- Docker Desktop : 4.8.2
 
 Running Examples :
   - Download the zip or clone the Git repository.
@@ -38,6 +44,7 @@ Requirements :
 7. Setup Mysql DB in cloud.Connect application to the Mysql DB.
 8. Set up Jenkin and build CI/CD pipeline for the application deployed in Cloud.
 9. Create Dev branch for local development and Use Master branch for cloud development(PROD).
+10. Use GITGub as source code repo, DockerHUB as Image Registry and Kuberenets for automate deployment.
 
 Learn Commands : 
 1. Docker & Kubernetes
