@@ -1,5 +1,8 @@
 package com.lms.accesslibrary.controller;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +18,9 @@ import com.lms.accesslibrary.service.BookService;
 @RestController
 @RequestMapping("/api")
 public class BookController {
+	
+	private Logger logger = LoggerFactory.getLogger(BookController.class);
+	
 	@Autowired
 	private BookService bookService;
 
@@ -24,7 +30,7 @@ public class BookController {
 	
 	@PostMapping("/addbook")
     public Response addBook(@RequestBody Request request) {
-		
+		logger.info("Add Book method in BookController class is invoked.");
 		Response response = bookService.addBook(request);
 
         return response;
@@ -32,7 +38,7 @@ public class BookController {
 	
 	@PostMapping("/removebook")
     public Response removeBook(@RequestBody Request request) {
-		
+		logger.info("Remove Book method in BookController class is invoked.");
 		Response response = bookService.removeBook(request);
 
         return response;
