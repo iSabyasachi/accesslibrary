@@ -1,10 +1,13 @@
 package com.lms.accesslibrary.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.lms.accesslibrary.bean.BookBean;
 import com.lms.accesslibrary.dto.Request;
 import com.lms.accesslibrary.dto.Response;
+import com.lms.accesslibrary.entity.library.book.Book;
 
 @Service
 public interface iBookService {
@@ -13,4 +16,5 @@ public interface iBookService {
 	public BookBean getBookById(long id);
 	public BookBean getBookByBarcode(String barcode);
 	public Response updateBook(Request request);
+	public List<BookBean> getBookByType(String type);
 }

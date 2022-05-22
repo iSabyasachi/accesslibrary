@@ -2,11 +2,11 @@ package com.lms.accesslibrary.service;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import com.lms.accesslibrary.bean.BookBean;
 import com.lms.accesslibrary.bo.BookBO;
@@ -114,6 +114,18 @@ public class BookServiceImpl implements iBookService{
 		BookBean bookBean = new BookBean();		
 		LibraryUtility.copyProperties(book, bookBean);
 		return bookBean;
+	}
+	
+	@Override
+	public List<BookBean> getBookByType(String type) {
+		List<Book> books = bookBO.getBookByType(type);
+		List<BookBean> bookBeans = new ArrayList<>();		
+		for(Book book : books) {
+			BookBean bookBean = new BookBean();
+			LibraryUtility.copyProperties(book, bookBean);
+			bookBeans.add(bookBean);			
+		}
+		return bookBeans;
 	}
 	
 }

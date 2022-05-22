@@ -23,7 +23,7 @@ public class BookBean {
 	private String isReferenceOnly;
 	private int active;
 	private int unit;
-	private String rack_num;
+	private String rackNum;
 	//private Set<BookItem> bookItems;
 	private String status;	
 	private Timestamp createdTS;
@@ -124,11 +124,12 @@ public class BookBean {
 	public void setUnit(int unit) {
 		this.unit = unit;
 	}
-	public String getRack_num() {
-		return rack_num;
+	
+	public String getRackNum() {
+		return rackNum;
 	}
-	public void setRack_num(String rack_num) {
-		this.rack_num = rack_num;
+	public void setRackNum(String rackNum) {
+		this.rackNum = rackNum;
 	}
 	/*
 	public Set<BookItem> getBookItems() {

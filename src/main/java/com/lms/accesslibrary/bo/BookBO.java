@@ -1,10 +1,12 @@
 package com.lms.accesslibrary.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.lms.accesslibrary.dao.BookDAO;
 import com.lms.accesslibrary.dao.BookRepository;
-import com.lms.accesslibrary.dao.LibraryDAO;
 import com.lms.accesslibrary.entity.library.book.Book;
 
 @Component
@@ -14,7 +16,7 @@ public class BookBO {
 	BookRepository bookRepository;
 	
 	@Autowired
-	LibraryDAO libraryDAO;
+	BookDAO bookDAO;
 	
 	public Book findByISBN(String isbn) {
 		return bookRepository.findByISBN(isbn);
@@ -33,15 +35,20 @@ public class BookBO {
 	}
 	
 	public Book getBookById(long id) {		
-		return libraryDAO.getBookById(id);
+		return bookDAO.getBookById(id);
 	}
 	
 	public Book getBookByBarcode(String barcode) {		
-		return libraryDAO.getBookByBarcode(barcode);
+		return bookDAO.getBookByBarcode(barcode);
 	}
 	
 	public Book updateBook(Book book){
-		return (Book) libraryDAO.saveOrUpdate(book);
+		return (Book) bookDAO.saveOrUpdate(book);
 	};
+	
+	public List<Book> getBookByType(String type) {
+		List<Book> books = bookDAO.getBookByType(type);
+		return books;
+	}
 	
 }

@@ -1,16 +1,30 @@
 package com.lms.accesslibrary.dao;
 
-import com.lms.accesslibrary.entity.library.book.Book;
-import com.lms.accesslibrary.entity.library.user.User;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import com.lms.accesslibrary.entity.library.BaseEntity;
 
 public abstract class BaseDAO implements iBaseDAO{	
-	public abstract Book insertBook(Book book);
-	public abstract Book updateBook(Book book);		
-	public abstract Book getBookById(long id);		
-	public abstract void deleteBookById(int id);
 	
-	public abstract User insertUser(User user);
-	public abstract User updateUser(User user);
-	public abstract User getUserById(int id);
-	public abstract void deleteUserById(int id);
+	@PersistenceContext
+	EntityManager entityManager;
+	
+	
+	@Override
+	public void flush() {
+		entityManager.flush();		
+	}
+
+	@Override
+	public void merge(BaseEntity data) {
+		entityManager.merge(data);		
+	}
+
+	@Override
+	public BaseEntity saveOrUpdate(BaseEntity data) {
+		return entityManager.merge(data);
+		
+	}
+		
 }

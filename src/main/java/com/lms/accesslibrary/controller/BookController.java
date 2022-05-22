@@ -1,6 +1,8 @@
 package com.lms.accesslibrary.controller;
 
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lms.accesslibrary.bean.BookBean;
-import com.lms.accesslibrary.dto.Checkout;
-import com.lms.accesslibrary.dto.CheckoutResponse;
 import com.lms.accesslibrary.dto.Request;
 import com.lms.accesslibrary.dto.Response;
 import com.lms.accesslibrary.service.iBookService;
@@ -40,9 +40,16 @@ public class BookController {
 	
 	@GetMapping("/getbook/barcode/{barcode}")
 	public BookBean getBookByBarcode(@PathVariable String barcode) {
-		logger.info("Get Book method - getBookByBarcode in BookController class is invoked for the id "+barcode);
+		logger.info("Get Book method - getBookByBarcode in BookController class is invoked for the barcode "+barcode);
 		BookBean bookBean = bookService.getBookByBarcode(barcode);
 		return bookBean;
+	}
+	
+	@GetMapping("/getbook/type/{type}")
+	public List<BookBean> getBookByType(@PathVariable String type) {
+		logger.info("Get Book method - getBookByType in BookController class is invoked for the type "+type);
+		List<BookBean> bookBeans = bookService.getBookByType(type);
+		return bookBeans;
 	}
 	
 	@PostMapping("/addbook")

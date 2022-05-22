@@ -35,12 +35,9 @@ public class Book extends BaseEntity{
 	private String isReferenceOnly;
 	private int active;
 	private int unit;
-	private String rack_num;
+	private String rackNum;
 	private Set<BookItem> bookItems;
-	private String status;	
-	//private Timestamp createdTS;
-	//private Timestamp updatedTS;
-	
+	private String status;
 	
 	
 	@Id
@@ -175,13 +172,12 @@ public class Book extends BaseEntity{
 	}
 	
 	@Column(name="rack_num", nullable = false)
-	public String getRack_num() {
-		return rack_num;
+	public String getRackNum() {
+		return rackNum;
 	}
-	public void setRack_num(String rack_num) {
-		this.rack_num = rack_num;
+	public void setRackNum(String rackNum) {
+		this.rackNum = rackNum;
 	}
-	
 	@OneToMany(mappedBy="book", cascade = CascadeType.ALL)
 	public Set<BookItem> getBookItems() {
 		return bookItems;
@@ -197,26 +193,6 @@ public class Book extends BaseEntity{
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	/*
-	@Column(name="date_created", nullable = false)
-	public Timestamp getCreatedTS() {
-		return createdTS;
-	}
-	public void setCreatedTS(Timestamp createdTS) {
-		this.createdTS = createdTS;
-	}
-	
-	@Column(name="last_updated", nullable = false)
-	public Timestamp getUpdatedTS() {
-		return updatedTS;
-	}
-	public void setUpdatedTS(Timestamp updatedTS) {
-		this.updatedTS = updatedTS;
-	}
-	*/
-	
-	
 	
 
 }
