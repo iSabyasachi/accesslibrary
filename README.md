@@ -1,7 +1,7 @@
 # accesslibrary
 Library Management System(LMS)
 
-Let's create awesome Microservices and RESTful web services with Spring and Spring Boot.
+Let's create awesome LMS Microservices and RESTful web services with Spring and Spring Boot.
 
 1. Overview
 2. Installing Tools
