@@ -1,6 +1,5 @@
 package com.lms.accesslibrary.entity.library.book;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Set;
 
@@ -10,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,6 +17,7 @@ import com.lms.accesslibrary.entity.library.BaseEntity;
 
 @Entity
 @Table(name="t_book")
+@NamedQuery(name = "getBookByBarcode", query = "select b from Book b where b.barcode = :barcode")
 public class Book extends BaseEntity{
 	private Long id;
 	private String ISBN;
@@ -37,8 +38,8 @@ public class Book extends BaseEntity{
 	private String rack_num;
 	private Set<BookItem> bookItems;
 	private String status;	
-	private Timestamp createdTS;
-	private Timestamp updatedTS;
+	//private Timestamp createdTS;
+	//private Timestamp updatedTS;
 	
 	
 	
@@ -197,6 +198,7 @@ public class Book extends BaseEntity{
 		this.status = status;
 	}
 	
+	/*
 	@Column(name="date_created", nullable = false)
 	public Timestamp getCreatedTS() {
 		return createdTS;
@@ -212,7 +214,7 @@ public class Book extends BaseEntity{
 	public void setUpdatedTS(Timestamp updatedTS) {
 		this.updatedTS = updatedTS;
 	}
-	
+	*/
 	
 	
 	

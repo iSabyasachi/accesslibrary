@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.lms.accesslibrary.dao.BookRepository;
+import com.lms.accesslibrary.dao.LibraryDAO;
 import com.lms.accesslibrary.entity.library.book.Book;
 
 @Component
@@ -11,6 +12,9 @@ public class BookBO {
 	
 	@Autowired
 	BookRepository bookRepository;
+	
+	@Autowired
+	LibraryDAO libraryDAO;
 	
 	public Book findByISBN(String isbn) {
 		return bookRepository.findByISBN(isbn);
@@ -28,5 +32,16 @@ public class BookBO {
 		bookRepository.delete(book);
 	}
 	
+	public Book getBookById(long id) {		
+		return libraryDAO.getBookById(id);
+	}
+	
+	public Book getBookByBarcode(String barcode) {		
+		return libraryDAO.getBookByBarcode(barcode);
+	}
+	
+	public Book updateBook(Book book){
+		return (Book) libraryDAO.saveOrUpdate(book);
+	};
 	
 }

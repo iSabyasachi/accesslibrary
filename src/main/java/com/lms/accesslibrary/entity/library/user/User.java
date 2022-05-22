@@ -2,7 +2,6 @@ package com.lms.accesslibrary.entity.library.user;
 
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,14 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.lms.accesslibrary.entity.library.BaseEntity;
-import com.lms.accesslibrary.entity.library.book.BookItem;
 
 @Entity
 @Table(name="t_account_user")
