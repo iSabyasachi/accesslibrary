@@ -51,3 +51,17 @@ Learn Commands :
 2. Mysql
 3. Jenkin
 4. Spring Boot
+
+Docker & Kuberenetes :
+ Basic Docker Commands:
+  Pull an image from repository -> docker pull
+  Run a container based on image -> docker run
+  List a container -> docker ps
+  Stop a container -> docker stop <container>
+  Start a container -> docker start <container>
+  Remove a container -> docker rm
+  Remove an image -> docker rmi
+  Kill a container -> docker kill <container>
+  List last 100 lines of container logs -> docker logs --tail 100
+  Build an image from Docker file -> docker build
+  Push an image to repository -> docker push
