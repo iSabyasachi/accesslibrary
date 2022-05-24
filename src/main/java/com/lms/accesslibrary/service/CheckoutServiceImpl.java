@@ -26,7 +26,7 @@ import com.lms.accesslibrary.utility.DateFormatUtility;
 import com.lms.accesslibrary.utility.FineCalculatorUtility;
 
 @Service
-public class CheckoutServiceImpl implements CheckoutService {
+public class CheckoutServiceImpl implements iCheckoutService {
 	
 	@Autowired
 	private CheckoutResponse response;

@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lms.accesslibrary.dto.Request;
 import com.lms.accesslibrary.dto.Response;
 import com.lms.accesslibrary.entity.library.user.User;
-import com.lms.accesslibrary.service.UserService;
+import com.lms.accesslibrary.service.iUserService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/access")
 public class UserController {
 	private Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
-	private UserService userService;
+	private iUserService userService;
 
-	public UserController(UserService userService) {		
+	public UserController(iUserService userService) {		
 		this.userService = userService;
 	}
 	

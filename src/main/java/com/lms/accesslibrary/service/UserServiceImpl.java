@@ -16,7 +16,7 @@ import com.lms.accesslibrary.entity.library.user.User;
 import com.lms.accesslibrary.enums.UserType;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements iUserService {
 	
 	@Autowired
 	private Response response;

@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import com.lms.accesslibrary.entity.library.book.BookItem;
 
 @RepositoryRestResource(collectionResourceRel = "bookItem", path = "book-borrowed")
-public interface BookItemRepository extends JpaRepository<BookItem, String>{
+public interface BookItemRepository extends JpaRepository<BookItem, Long>{
 	
 	List<BookItem> findByBarcode(String barcode);
 	

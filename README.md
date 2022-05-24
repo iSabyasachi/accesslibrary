@@ -1,7 +1,7 @@
 # accesslibrary
 Library Management System(LMS)
 
-Let's create awesome Microservices and RESTful web services with Spring and Spring Boot.
+Let's create awesome LMS Microservices and RESTful web services with Spring and Spring Boot.
 
 1. Overview
 2. Installing Tools
@@ -53,6 +53,7 @@ Learn Commands :
 4. Spring Boot
 
 Docker & Kuberenetes :
+
 - Basic Docker Commands:
   - Pull an image from repository -> docker pull
   - Run a container based on image -> docker run
@@ -65,3 +66,4 @@ Docker & Kuberenetes :
   - List last 100 lines of container logs -> docker logs --tail 100
   - Build an image from Docker file -> docker build
   - Push an image to repository -> docker push
+
