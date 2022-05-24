@@ -19,7 +19,7 @@ import com.lms.accesslibrary.dto.Response;
 import com.lms.accesslibrary.service.iBookService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/access")
 public class BookController {
 	
 	private Logger logger = LoggerFactory.getLogger(BookController.class);

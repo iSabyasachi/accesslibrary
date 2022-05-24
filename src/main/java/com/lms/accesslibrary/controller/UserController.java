@@ -15,7 +15,7 @@ import com.lms.accesslibrary.entity.library.user.User;
 import com.lms.accesslibrary.service.iUserService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/access")
 public class UserController {
 	private Logger logger = LoggerFactory.getLogger(UserController.class);
 	

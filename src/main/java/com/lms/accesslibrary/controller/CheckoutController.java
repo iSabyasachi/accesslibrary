@@ -14,7 +14,7 @@ import com.lms.accesslibrary.dto.CheckoutResponse;
 import com.lms.accesslibrary.service.iCheckoutService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/access")
 public class CheckoutController {
 	
 	private Logger logger = LoggerFactory.getLogger(CheckoutController.class);
